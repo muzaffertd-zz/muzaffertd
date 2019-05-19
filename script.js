@@ -29,7 +29,7 @@ let c = canvas.getContext('2d');
 // c.strokeStyle = 'rgba(' + (255 * Math.random()) + ',' + (255 * Math.random()) + ',' + (255 * Math.random()) + ',1)';
 // c.stroke();
 
-function Circle(x, y, radius, dx, dy) {
+function Circle(x, y, radius, dx, dy, r, g, b) {
   this.x = x;
   this.y = y;
   this.radius = radius;
@@ -40,7 +40,7 @@ function Circle(x, y, radius, dx, dy) {
     // console.log('draw')
     c.beginPath();
     c.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    c.strokeStyle = 'rgba(' + (255 * Math.random()) + ',' + (255 * Math.random()) + ',' + (255 * Math.random()) + ',1)';
+    c.strokeStyle = 'rgba(' + r + ',' + g + ',' + b + ',1)';
     c.stroke();
   }
   this.update = function () {
@@ -65,7 +65,10 @@ for (let i = 0; i < 50; i++) {
   let y = Math.random() * (innerHeight - radius * 2) + radius;
   let dx = (Math.random() - 0.5) * 8;
   let dy = (Math.random() - 0.5) * 8;
-  circleArray.push(new Circle(x, y, radius, dx, dy));
+  let r = (255 * Math.random());
+  let g = (255 * Math.random());
+  let b = (255 * Math.random());
+  circleArray.push(new Circle(x, y, radius, dx, dy, r, g, b));
 }
 console.log(circleArray)
 
